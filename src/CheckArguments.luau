@@ -40,7 +40,7 @@ local function checkArguments<A...>(multipleArgumentCheckParams: MultipleArgumen
 			Order = argumentOrder,
 			Name = singleArgumentCheckParams.Name,
 			Reason = singleArgumentCheckParams.Reason,
-		})
+		}, multipleArgumentCheckParams.Level)
 	end
 end
 
