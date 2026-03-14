@@ -11,9 +11,15 @@ export type SingleArgumentCheckParamsExcludeOrder<T> = {
 	Reason: string?,
 }
 
-export type MultipleArgumentCheckParams = { SingleArgumentCheckParamsExcludeOrder<unknown> } & {
+export type MultipleArgumentCheckParams = { SingleArgumentCheckParamsExcludeOrder<any> } & {
 	Level: number?,
 }
+
+-- export type MultipleArgumentCheckParams =
+-- 	{ SingleArgumentCheckParamsExcludeOrder<any> }
+-- 	| ({ SingleArgumentCheckParamsExcludeOrder<any> } & {
+-- 		Level: number?,
+-- 	})
 
 local delta1Error = deltaError(1)
 
