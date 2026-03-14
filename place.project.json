@@ -1,0 +1,24 @@
+{
+  "name": "ArgsUtilsTest",
+  "tree": {
+    "$className": "DataModel",
+
+    "ReplicatedStorage": {
+        "$className": "ReplicatedStorage",
+        "Packages": {
+            "$path": "Packages",
+
+            "ArgsUtils": {
+                "$path": "src"
+            }
+        }
+    },
+    "ServerScriptService": {
+      "$className": "ServerScriptService",
+
+      "ArgsUtilsTest": {
+        "$path": "bin/run-tests.server.luau"
+      }
+    }
+  }
+}

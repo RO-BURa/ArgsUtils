@@ -1,0 +1,15 @@
+[package]
+name = "ro-bura/deltaerror"
+description = "delta error"
+
+version = "0.1.2"
+registry = "https://github.com/UpliftGames/wally-index"
+realm = "shared"
+
+include = ["src", "src/**", "default.project.json", "selene.toml", "wally.toml"]
+exclude = ["**"]
+
+license = "MIT"
+authors = ["RO_BURa"]
+
+[dependencies]
