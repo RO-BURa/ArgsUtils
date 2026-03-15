@@ -42,6 +42,10 @@ export type MultipleArgumentCheckParams = { SingleArgumentCheckParamsExcludeOrde
 
 local delta1Error = deltaError(1)
 
+--[=[
+	Validates a list of arguments.
+	Checks for missing arguments and validates each provided value.
+]=]
 local function checkArguments<A...>(multipleArgumentCheckParams: MultipleArgumentCheckParams, ...: A...)
 	local level = multipleArgumentCheckParams.Level or 2
 
