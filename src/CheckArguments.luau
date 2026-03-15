@@ -5,15 +5,40 @@
 local check = require("./Check")
 local deltaError = require(script.Parent.Parent.DeltaError)
 
+-- type function Newindex(t: type, i: type, v: type)
+-- 	t:setproperty(i, v)
+-- 	return t
+-- end
+
+-- local a:Newindex<typeof({}), "asdf", "dddd"> = {
+-- 	asdf = "dddd"
+-- }
+-- local b: typeof({}) = {}
+
+-- b.asdf = "dddd" :: "dddd"
+-- b.dfdfdfdf = 30
+
 export type SingleArgumentCheckParamsExcludeOrder<T> = {
 	Value: T,
 	Name: string?,
 	Reason: string?,
 }
 
-export type MultipleArgumentCheckParams = { SingleArgumentCheckParamsExcludeOrder<any> } & {
-	Level: number?,
-}
+local levelTemplete = {}
+
+levelTemplete.Level = 1234
+
+-- export type MultipleArgumentCheckParams =
+-- 	{ SingleArgumentCheckParamsExcludeOrder<any> }
+-- 	& Newindex<typeof({}), "Level", number>
+
+export type MultipleArgumentCheckParams =
+	{ SingleArgumentCheckParamsExcludeOrder<any> }
+	& typeof({}) & {
+		Level: number?,
+	}
+
+-- export type MultipleArgumentCheckParams = { [number|"Level"]: SingleArgumentCheckParamsExcludeOrder<any>|number }
 
 -- export type MultipleArgumentCheckParams =
 -- 	{ SingleArgumentCheckParamsExcludeOrder<any> }
@@ -24,6 +49,12 @@ export type MultipleArgumentCheckParams = { SingleArgumentCheckParamsExcludeOrde
 local delta1Error = deltaError(1)
 
 local function checkArguments<A...>(multipleArgumentCheckParams: MultipleArgumentCheckParams, ...: A...)
+	local level = multipleArgumentCheckParams.Level or 2
+
+	if 0 < level then
+		level += 1
+	end
+
 	local numberOfArguments = select("#", ...)
 	for argumentOrder, singleArgumentCheckParams in ipairs(multipleArgumentCheckParams) do
 		if numberOfArguments < argumentOrder then
@@ -40,7 +71,7 @@ local function checkArguments<A...>(multipleArgumentCheckParams: MultipleArgumen
 			Order = argumentOrder,
 			Name = singleArgumentCheckParams.Name,
 			Reason = singleArgumentCheckParams.Reason,
-		}, multipleArgumentCheckParams.Level)
+		}, level)
 	end
 end
 
