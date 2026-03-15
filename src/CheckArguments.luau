@@ -24,10 +24,6 @@ export type SingleArgumentCheckParamsExcludeOrder<T> = {
 	Reason: string?,
 }
 
-local levelTemplete = {}
-
-levelTemplete.Level = 1234
-
 -- export type MultipleArgumentCheckParams =
 -- 	{ SingleArgumentCheckParamsExcludeOrder<any> }
 -- 	& Newindex<typeof({}), "Level", number>
