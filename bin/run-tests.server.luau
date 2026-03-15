@@ -42,9 +42,15 @@ local function safe<A..., R...>(f: (A...) -> R..., ...: A...)
 	end
 end
 
+print(1)
 safe(setmetatable2, {}, {})
+print(2)
 safe(setmetatable2, 30, 1650)
+print(3)
 safe(setmetatable2)
+print(4)
 safe(setmetatable2, nil)
+print(5)
 safe(setmetatable2, {})
+print(6)
 safe(setmetatable2, {}, nil)

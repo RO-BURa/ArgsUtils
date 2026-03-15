@@ -32,11 +32,9 @@ levelTemplete.Level = 1234
 -- 	{ SingleArgumentCheckParamsExcludeOrder<any> }
 -- 	& Newindex<typeof({}), "Level", number>
 
-export type MultipleArgumentCheckParams =
-	{ SingleArgumentCheckParamsExcludeOrder<any> }
-	& typeof({}) & {
-		Level: number?,
-	}
+export type MultipleArgumentCheckParams = { SingleArgumentCheckParamsExcludeOrder<any> } & typeof({}) & {
+	Level: number?,
+}
 
 -- export type MultipleArgumentCheckParams = { [number|"Level"]: SingleArgumentCheckParamsExcludeOrder<any>|number }
 
